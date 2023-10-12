@@ -28,7 +28,7 @@ const Registration = () => {
               id="email"
               name="email"
               value={user.email}
-              onChange={(e) => setUser({ ...user, username: user.username, email: e.target.value, password: user.password, passwordConfirm: user.passwordConfirm })}
+              onChange={(e) => setUser({ ...user, username: user.email.substring(0, user.email.indexOf('@')), email: e.target.value, password: user.password, passwordConfirm: user.passwordConfirm })}
             />
           </div>
           
@@ -39,7 +39,7 @@ const Registration = () => {
               id="name"
               name="name"
               value={user.email.includes('@') ? user.email.substring(0, user.email.indexOf('@')) : user.username}
-              onChange={(e) => setUser({ ...user, username: user.email.includes('@') ? user.email.substring(0, user.email.indexOf('@')) : e.target.value, email: user.email, password: user.password, passwordConfirm: user.passwordConfirm })}
+              onChange={(e) => setUser({ ...user, username: e.target.value })}
             />
           </div>
 
@@ -50,7 +50,7 @@ const Registration = () => {
               id="password"
               name="password"
               value={user.password}
-              onChange={(e) => setUser({ ...user, username: user.username, email: user.email, password: e.target.value, passwordConfirm: user.passwordConfirm })}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
           </div>
 
@@ -61,7 +61,7 @@ const Registration = () => {
               id="passwordConfirm"
               name="password"
               value={user.passwordConfirm}
-              onChange={(e) => setUser({ ...user, username: user.username, email: user.email, password: user.password, passwordConfirm: e.target.value })}
+              onChange={(e) => setUser({ ...user, passwordConfirm: e.target.value })}
             />
           </div>
 
